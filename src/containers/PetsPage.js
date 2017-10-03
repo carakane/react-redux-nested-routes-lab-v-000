@@ -6,16 +6,20 @@ import PetsNew from './PetsNew';
 import PetsShow from './PetsShow';
 import PetsList from '../components/PetsList';
 
-// class PetsPage extends Component {
+class PetsPage extends Component {
 
-const PetsPage = ({match, pets}) =>
+//const PetsPage = ({match, pets}) =>
   componentDidMount() {
     this.props.fetchPets();
   }
 
   render() {
+	
+	const { match, pets } = this.props;
+
     return (
       <div>Pets Page
+				<PetsList pets={pets} />
       <Switch>
         <Route path={`${match.url}/new`} component={PetsNew} />
         <Route path={`${match.url}/:petsId`} component={PetsShow}/>
